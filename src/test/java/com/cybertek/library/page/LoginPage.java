@@ -21,6 +21,8 @@ public class LoginPage {
     @FindBy(className = "btn btn-lg btn-primary btn-block")
     public WebElement loginButton;
 
+
+
     //login method where we dont have to pass username, password
     public void loginToLibrary(){
         inputUsername.sendKeys("student48@library");
@@ -43,4 +45,6 @@ public class LoginPage {
         loginButton.click();
 
     }
+
+
 }
