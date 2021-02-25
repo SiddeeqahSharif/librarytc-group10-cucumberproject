@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class Library_StepDefinitions {
 
@@ -23,8 +24,8 @@ public class Library_StepDefinitions {
        loginPage.inputUsername.sendKeys("student48@library");
     }
 
-    @When("user enter librarian password")
-    public void user_enter_librarian_password() {
+    @And("user enters librarian password")
+    public void user_enters_librarian_password() {
         loginPage.inputPassword.sendKeys("xjapSRzD");
 
     }
@@ -36,6 +37,12 @@ public class Library_StepDefinitions {
 
     @Then("librarian should see dashboard")
     public void librarian_should_see_dashboard() {
+        String actualTitle = Driver.getDriver().getTitle();
+        String expectedTitle = "Library";
+
+        Assert.assertTrue(actualTitle.contains(expectedTitle));
+
+        System.out.println(actualTitle);
 
     }
 
