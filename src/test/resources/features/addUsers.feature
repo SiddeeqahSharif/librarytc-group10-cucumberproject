@@ -17,3 +17,12 @@ Scenario: Librarian adds users
   Then User should see the new user on the UserPage
 
 
+ Scenario: Librarian edits users
+   When user clicks the Users button
+   And user clicks the EditUserButton
+   And User edits name
+   And User clicks SaveChangesButton
+   Then User should see the success message on UserPage
+
+
+

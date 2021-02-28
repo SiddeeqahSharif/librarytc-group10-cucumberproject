@@ -41,5 +41,8 @@ public class LibraryUsersPage extends Library_BasePage {
     @FindBy(xpath = "//a[@class='dropdown-item']")
     public WebElement LogoutButton;
 
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm']")
+    public WebElement EditUserButton;
+
 
 }

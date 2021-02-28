@@ -6,6 +6,8 @@ import com.cybertek.library.pages.LibraryUsersPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.util.Locale;
 
@@ -51,5 +53,35 @@ public class AddUsers_stepDefinitions {
     public void user_should_see_the_new_user_on_the_user_page() {
         libraryUsersPage.UserAddSuccessMessage.isDisplayed();
     }
+
+    @When("user clicks the Users button")
+    public void userClicksUsersButton() {
+        libraryUsersPage.Users.click();
+    }
+
+    @When("user clicks the EditUserButton")
+    public void userClicksTheEditUserButton() {
+        libraryUsersPage.EditUserButton.click();
+    }
+
+    @And("User edits name")
+    public void user_edits_name() {
+        libraryUsersPage.NewUserFullName.sendKeys(faker.name().fullName());
+    }
+
+    @And("User clicks SaveChangesButton")
+    public void user_clicks_save_changes_button() {
+        libraryUsersPage.SaveChangesButton.click();
+    }
+
+    @Then("User should see the success message on UserPage")
+    public void user_should_see_the_success_message_on_the_UserPage() {
+        Assert.assertTrue(libraryUsersPage.UserAddSuccessMessage.isDisplayed());
+    }
+
+
+
+
+
 }
 

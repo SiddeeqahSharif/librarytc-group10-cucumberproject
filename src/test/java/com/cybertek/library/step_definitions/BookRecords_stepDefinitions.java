@@ -22,15 +22,6 @@ public class BookRecords_stepDefinitions {
     BooksPage booksPage = new BooksPage();
 
 
-    @Given("User is on the homepage")
-    public void user_is_on_the_homepage() throws InterruptedException {
-
-        libraryLoginPage.loginToLibrary();
-        Thread.sleep(3000);
-
-
-    }
-
     @Then("User should see the dashboard")
     public void user_should_see_the_dashboard() {
 
