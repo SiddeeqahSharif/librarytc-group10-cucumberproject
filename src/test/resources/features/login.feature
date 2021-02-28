@@ -1,22 +1,48 @@
-Feature: Library app login feature
-  As a user, I should be able to login with correct credentials to different accounts. And dashboard should be displayed.
-  Accounts are: librarian, student
-  #this is how you comment in feature file
-#  Background: User is already in login page
-#    Given user is on the login page
+@login
+Feature: Login
+  Lib-1000 As a student user, I should be able to see the student landing page
+  Lib-1003 As a librarian user, I should be able to see the librarian landing page
 
-  @librarian
-  Scenario: Login as librarian
-    Given librarian is on the login page
-    When user enters librarian username
-    And user enters librarian password
-    And user clicks the login button
-    Then librarian should see dashboard
+  #Acceptance criteria Lib=1000
+  #Student will login with valid username and password
 
-  @student
-  Scenario: Login as student
-    Given user is on the login page
-    When user enters student username
-    And user enters student password
-    And student clicks the login button
-    Then student should see dashboard
+  Scenario Outline: User will login as student
+    Given User is on the library login page
+    When User enters correct student "<Username>" and "<Password>"
+    And User clicks the sign-in button
+    Then User sees the library homepage
+
+    Examples:
+      | Username         | Password         |
+      | student1Username | student1Password |
+      | student2Username | student2Password |
+      | student3Username | student3Password |
+
+
+  #Student negative test
+
+  Scenario Outline: User will login as librarian
+    Given User is on the library login page
+    When User enters correct librarian "<Username>" and "<Password>"
+    And User clicks the sign-in button
+    Then User sees the library homepage
+
+    Examples:
+      | Username          | Password          |
+      | librarianUsername | librarianPassword |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
