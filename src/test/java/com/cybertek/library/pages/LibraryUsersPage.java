@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LibraryUsersPage extends Library_BasePage{
+public class LibraryUsersPage extends Library_BasePage {
 
-    public LibraryUsersPage(){ PageFactory.initElements(Driver.getDriver(), this); }
+    public LibraryUsersPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
 
     @FindBy(css = "[class='btn btn-lg btn-outline btn-primary btn-sm']")
     public WebElement AddUser;
@@ -33,7 +35,11 @@ public class LibraryUsersPage extends Library_BasePage{
     @FindBy(xpath = "//div[@class='toast-message']")
     public WebElement UserAddSuccessMessage;
 
+    @FindBy(id = "navbarDropdown")
+    public WebElement NavigationBarDropdown;
 
+    @FindBy(xpath = "//a[@class='dropdown-item']")
+    public WebElement LogoutButton;
 
 
 }
